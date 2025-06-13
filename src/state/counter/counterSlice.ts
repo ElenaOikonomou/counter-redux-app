@@ -1,0 +1,25 @@
+import { createSlice } from "@reduxjs/toolkit"
+//each sice is responsible for its own state
+interface CounterState{
+    value: number
+}
+
+const initialState: CounterState = {
+    value: 0
+}
+
+const counterSlice = createSlice({
+    name: "counter",
+    initialState,
+    reducers: {
+        increment: (state) => {
+            state.value += 1
+        },
+        decrement: (state) => {
+            state.value -= 1
+        }
+    }
+}) // it doesn's change the state directly. Under the hood the counterSlice creates a copy of the state and overwrites the existing one with the changed mutated state
+
+export default counterSlice.reducer
+export const {increment, decrement} = counterSlice.actions //this is how we export the actions
