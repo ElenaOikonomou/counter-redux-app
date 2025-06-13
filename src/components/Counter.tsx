@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createAsyncThunk } from "@reduxjs/toolkit";
 import { decrement, increment, incrementByAmount } from "../state/counter/counterSlice"
 import { RootState } from "../state/store";
 
@@ -16,5 +16,7 @@ const Counter = () => {
     </div>
   );
 };
+
+
 
 export default Counter;
