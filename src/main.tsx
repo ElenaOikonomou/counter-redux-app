@@ -9,12 +9,13 @@ const root = document.getElementById('root');
 if (root) {
   ReactDOM.createRoot(root).render(
     <StrictMode>
-      <Provider store={store}> /*our store can now be accessible by any component within our App */
+      <Provider store={store}> 
         <App />
-      </Provider>
+      </Provider> 
     </StrictMode>
   );
 } else {
   console.error('Root element not found!');
 }
+//our store since we added the provider can now  be accessible by any component within our App 
 
