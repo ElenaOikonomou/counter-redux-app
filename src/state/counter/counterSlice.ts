@@ -23,7 +23,11 @@ const counterSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(incrementAsync.fulfilled, (state, action) => {
+        builder
+        .addCase(incrementAsync.pending, ()=>{
+            console.log("incrementAsync pending.pending")
+        })
+        .addCase(incrementAsync.fulfilled, (state, action: PayloadAction<number>) => {
             state.value += action.payload
         })
     }
