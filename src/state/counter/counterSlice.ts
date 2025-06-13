@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 //each sice is responsible for its own state
 interface CounterState{
     value: number
@@ -17,9 +17,12 @@ const counterSlice = createSlice({
         },
         decrement: (state) => {
             state.value -= 1
+        },
+        incrementByAmount: (state, action: PayloadAction<number>) => {
+            state.value += action.payload
         }
     }
 }) // it doesn's change the state directly. Under the hood the counterSlice creates a copy of the state and overwrites the existing one with the changed mutated state
 
 export default counterSlice.reducer
-export const {increment, decrement} = counterSlice.actions //this is how we export the actions
+export const {increment, decrement, incrementByAmount} = counterSlice.actions //this is how we export the actions
